@@ -10,5 +10,14 @@
   },
   "keywords": [],
   "author": "00009575",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "nodemon": "^2.0.7"
+  }
 }
