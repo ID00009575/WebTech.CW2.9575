@@ -3,7 +3,7 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-      res.status(200).render('home')
-    })
+  res.status(200).render('error', {msg: 'No error yet'})
+})
 
 export default router
