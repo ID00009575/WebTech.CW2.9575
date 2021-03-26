@@ -1,0 +1,14 @@
+{
+  "name": "blog-9575",
+  "version": "1.0.0",
+  "description": "WebTech course work application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app"
+  },
+  "keywords": [],
+  "author": "00009575",
+  "license": "ISC"
+}
