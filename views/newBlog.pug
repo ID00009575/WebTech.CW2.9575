@@ -1,7 +1,7 @@
 extends ./includes/layout
 block main
     .row.create-form
-        form.col.s12(method='POST' action='/new-blog/create-blog')
+        form.col.s12(method='POST' action='/new-blog/create-blog' enctype='multipart/form-data')
             .row
                 .input-field.col.s12
                     i.material-icons.prefix account_circle
@@ -17,15 +17,15 @@ block main
             .row
                 .input-field.col.s12
                     i.material-icons.prefix mode_edit
-                    textarea#textarea1.materialize-textarea(name='description')
-                    label(for='textarea1') Description:
+                    textarea#description.materialize-textarea(name='description')
+                    label(for='description') Description:
                     span.helper-text(data-error='Please enter some description' data-success='right') Enter description of the blog
             .file-field.input-field
                 .btn.blue.lighten-2
                     span Photo
-                    input(type='file')
+                    input(type='file' id='photo' name='photo')
                 .file-path-wrapper
-                    input.file-path.validate(type='text')
+                    input.file-path(type='text' name='filePath')
             .row
                 button.btn.waves-effect.waves-light.blue.darken-2(type='submit' name='action')
                     | Submit
@@ -36,7 +36,11 @@ block main
         #preview.modal.modal-fixed-footer
             .modal-content
                 h4 Blog Preview
-                img.responsive-img(src='static/images/blog-logo.jpg')
-                p description
+                section.card.col.s12.hoverable
+                    .card-image
+                        img.responsive-img(src='static/images/blog-logo.jpg')
+                        span.card-title Blog title
+                    .card-content
+                        p.description-review Blog description
             .modal-footer
                 button.modal-close.btn-flat OK

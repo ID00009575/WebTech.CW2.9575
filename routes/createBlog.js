@@ -11,7 +11,7 @@ const storageConfig = multer.diskStorage({
     cb(null, path.join(__dirname, 'public/images'));
   },
   filename: (req, file, cb) =>{
-    cb(null, file.fieldname + '_' + uniqueID());
+    cb(null, file.fieldname + '_' + uniqueID() + '.jpg');
   }
 });
 
@@ -29,7 +29,7 @@ router.post('/create-blog', upload.single('photo'), (req, res) => {
       id: uniqueID(),
       title: req.body.title,
       description: req.body.description,
-      photo: req.file.filename
+      photo: req.file.filename || ''
     }
     fs.readFile(dbBlogsPath, (err, data) => {
       if (err) res.status(404).render('errorPage', {msg: err})

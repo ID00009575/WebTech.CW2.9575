@@ -52,9 +52,6 @@ app.get('api/v1/get-blog/:id', (req, res) => {
     res.json(blog)
   })
 })
-app.get('/back', (req, res) => {
-  res.redirect('back')
-})
 
 // Server starting
 app.listen(PORT, () => {

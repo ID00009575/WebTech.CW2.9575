@@ -26,16 +26,17 @@ router.post('/:blogId', (req, res) => {
       fs.readFile(dbDeletedBlogsPath, (err, data) => {
         if (err) res.status(404).render('errorPage', {msg: err})
         const deletedBlogList = JSON.parse(data)
-        const deletedBlogs = deletedBlogList.filter(blog => blog.id !== id)
+        const blog = blogList.find(blog => blog.id === id)
+        deletedBlogList.push(blog)
 
-        fs.writeFile(dbDeletedBlogsPath, JSON.stringify(deletedBlogs), (err) => {
+        fs.writeFile(dbDeletedBlogsPath, JSON.stringify(deletedBlogList), (err) => {
           if (err) res.status(400).render('errorPage', {msg: err})
         })
       })
 
       fs.writeFile(dbBlogsPath, JSON.stringify(blogs), (err) => {
         if (err) res.status(400).render('errorPage', {msg: err})
-        res.render('blogList', {blogs: blogs})
+        res.render('thankYou', {Thank: 'Thank you for using our app!'})
       })
     })
   }

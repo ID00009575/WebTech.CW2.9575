@@ -5,14 +5,15 @@ block main
         article.all-blogs.col.s12.m12
             section.card.col.m6.s12.hoverable
                 .card-image
-                    img.responsive-img(src='blog-logo.jpg')
+                    img.responsive-img(src=`/static/images/${blog.photo}`)
                 .card-content
                     h4.flow-text
                         | Author:
-                        span blog.author
-                    p
-                        | I am a very simple card. I am good at containing small bits of information.
-                        | I am convenient because I require little markup to use effectively.
+                        span= blog.author
+                    p= blog.description
                 .card-action
-                    button.btn.blue.back Back
-                    button.btn.red.delete.right Delete
+                    a.btn.blue(href='/') Main Page
+                    if deleted
+                        button.btn.red.delete.right(data-id=`${blog.id}` data-url='/deleted-blogs') Delete
+                    else
+                        button.btn.red.delete.right(data-id=`${blog.id}` data-url='/all-blogs') Delete

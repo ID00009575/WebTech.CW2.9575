@@ -3,13 +3,15 @@ block main
     h3 Deleted Blogs
     .row
         article.all-blogs.col.s12.m12
-            section.card.col.l3.m5.s12.hoverable
-                .card-image
-                    img.responsive-img(src='static/images/blog-logo.jpg')
-                    span.card-title Blog Title
-                .card-content
-                    p.description-review
-                        | I am a very simple card. I am good at containing small bits of information.
-                        | I am convenient because I require little markup to use effectively.
-                .card-action
-                    a(href='/blog-details/blogID') Open details
+            if blogs.length > 0
+                each blog in blogs
+                    section.card.col.l3.m5.s12.hoverable
+                        .card-image
+                            img.responsive-img(src=`/static/images/${blog.photo}`)
+                            span.card-title= blog.title
+                        .card-content
+                            p.description-review= blog.description
+                        .card-action
+                            a(href=`/deleted-blogs/${blog.id}`) Open details
+            else
+                p 'There are no deleted blogs!'

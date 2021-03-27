@@ -13,7 +13,7 @@ router.get('/:blogId', (req, res) => {
       if (err) res.status(404).render('errorPage', {msg: err})
       const blogList = JSON.parse(data)
       const blog = blogList.find(blog => blog.id === id)
-      if(blog) res.render('blogDetails', {blog: blog})
+      if(blog) res.render('blogDetails', {blog: blog, deleted: false})
       else res.status(404).render('errorPage', {msg: 'Requested blog is not found!'})
     })
   } else {
