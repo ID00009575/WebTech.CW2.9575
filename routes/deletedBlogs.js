@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   fs.readFile(dbDeletedBlogsPath, (err, data) => {
     if (err) res.status(404).render('errorPage', {msg: err})
     const deletedBlogList = JSON.parse(data)
-    res.render('deletedBlogList', {blogs: deletedBlogList})
+    res.render('deletedBlogs', {blogs: deletedBlogList})
   })
 })
 // Deleting blog
@@ -24,7 +24,7 @@ router.post('/:blogId', (req, res) => {
 
       fs.writeFile(dbDeletedBlogsPath, JSON.stringify(blogs), (err) => {
         if (err) res.status(400).render('errorPage', {msg: err})
-        res.render('deletedBlogList', {thank: 'Thank you for using our app. The blog was deleted!'})
+        res.render('deletedBlogs', {thank: 'Thank you for using our app. The blog was deleted!'})
       })
     })
   }

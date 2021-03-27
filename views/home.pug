@@ -1,0 +1,12 @@
+extends ./includes/layout
+block main
+    .container.center-align
+        img(src='static/images/blog-logo.jpg')
+        h1 Welcome to Travel blog!
+        div.main-buttons
+            a.waves-effect.waves-light.btn-large.blue.hoverable(href='/new-blog')
+                i.material-icons.left add_circle_outline
+                | Add New
+            a.waves-effect.waves-light.btn-large.blue.hoverable(href='/all-blogs')
+                i.material-icons.left list
+                | See all

@@ -1,0 +1,15 @@
+extends ./includes/layout
+block main
+    h3 All Blogs
+    .row
+        article.all-blogs.col.s12.m12
+            section.card.col.l3.m5.s12.hoverable
+                .card-image
+                    img.responsive-img(src='static/images/blog-logo.jpg')
+                    span.card-title Blog Title
+                .card-content
+                    p.description-review
+                        | I am a very simple card. I am good at containing small bits of information.
+                        | I am convenient because I require little markup to use effectively.
+                .card-action
+                    a(href='/blog-details/blogID') Open details

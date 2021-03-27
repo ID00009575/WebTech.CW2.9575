@@ -1,0 +1,42 @@
+extends ./includes/layout
+block main
+    .row.create-form
+        form.col.s12(method='POST' action='/new-blog/create-blog')
+            .row
+                .input-field.col.s12
+                    i.material-icons.prefix account_circle
+                    input#author.validate(name='author' type='text')
+                    label(for='author') Author name:
+                    span.helper-text(data-error='Please enter your name' data-success='right') Enter your name
+            .row
+                .input-field.col.s12
+                    i.material-icons.prefix title
+                    input#title.validate(name='title' type='text')
+                    label(for='title') Title:
+                    span.helper-text(data-error='Please enter some title' data-success='right') Enter title of the blog
+            .row
+                .input-field.col.s12
+                    i.material-icons.prefix mode_edit
+                    textarea#textarea1.materialize-textarea(name='description')
+                    label(for='textarea1') Description:
+                    span.helper-text(data-error='Please enter some description' data-success='right') Enter description of the blog
+            .file-field.input-field
+                .btn.blue.lighten-2
+                    span Photo
+                    input(type='file')
+                .file-path-wrapper
+                    input.file-path.validate(type='text')
+            .row
+                button.btn.waves-effect.waves-light.blue.darken-2(type='submit' name='action')
+                    | Submit
+                    i.material-icons.right send
+                // Modal Trigger
+                a.btn.modal-trigger.right(data-target='preview') Preview
+        // Modal Structure
+        #preview.modal.modal-fixed-footer
+            .modal-content
+                h4 Blog Preview
+                img.responsive-img(src='static/images/blog-logo.jpg')
+                p description
+            .modal-footer
+                button.modal-close.btn-flat OK

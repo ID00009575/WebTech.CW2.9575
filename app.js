@@ -1,5 +1,6 @@
 // Built in modules
 import path from 'path'
+import fs from 'fs'
 
 // Third part modules
 import express from 'express'
@@ -16,6 +17,7 @@ import errorRouter from './routes/error.js'
 const PORT = process.env.PORT || 3000
 const app = express()
 const __dirname = path.resolve()
+const dbBlogsPath = path.resolve(__dirname, './data/blogs.json')
 
 
 // Middleware
@@ -34,6 +36,25 @@ app.use('/all-blogs', blogListRouter)
 app.use('/new-blog', createBlogRouter)
 app.use('/deleted-blogs', deletedBlogsRouter)
 app.use('/error', errorRouter)
+
+app.get('api/v1/get-blogs', (req, res) => {
+  fs.readFile(dbBlogsPath, (err, data) => {
+    if (err) res.status(404).render('errorPage', {msg: err})
+    const blogList = JSON.parse(data)
+    res.json(blogList)
+  })
+})
+app.get('api/v1/get-blog/:id', (req, res) => {
+  fs.readFile(dbBlogsPath, (err, data) => {
+    if (err) res.status(404).render('errorPage', {msg: err})
+    const blogList = JSON.parse(data)
+    const blog = blogList.find(blog => blog.id === req.params.id)
+    res.json(blog)
+  })
+})
+app.get('/back', (req, res) => {
+  res.redirect('back')
+})
 
 // Server starting
 app.listen(PORT, () => {

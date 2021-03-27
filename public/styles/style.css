@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+    padding: 0 4vw;
+}
+.container img {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+.main-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+.create-form {
+    width: 600px;
+    margin: auto;
+}
+.input-field input[type=text].valid {
+    border-bottom: 1px solid green;
+    box-shadow: 0 1px 0 0 limegreen;
+}
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+}
+.description-review {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.card-image span.card-title {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    padding: 0.5rem 1rem !important;
+}
+section.card {
+    padding: 0 !important;
+    margin-right: auto;
+}
+article.all-blogs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.card-content span {
+    font-weight: 700;
+}
