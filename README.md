@@ -27,3 +27,4 @@ List of blogs can be found in "all blogs" page. User can view each blog in detai
 This list can be accessed on a separate page. From details of deleted blogs, user can permanently delete the blog. 
 ## GitHub and Glitch links:
 https://github.com/ID00009575/WebTech.CW2.9575
+https://9575-blog.glitch.me/
