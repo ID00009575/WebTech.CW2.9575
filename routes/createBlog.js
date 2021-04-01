@@ -27,6 +27,7 @@ router.post('/create-blog', upload.single('photo'), (req, res) => {
   if (req.body) {
     const blog = {
       id: uniqueID(),
+      author: req.body.author,
       title: req.body.title,
       description: req.body.description,
       photo: req.file.filename || ''
